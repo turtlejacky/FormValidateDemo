@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using FormValidateDemo.Models.ViewModels;
 
 namespace FormValidateDemo.Controllers
 {
@@ -10,7 +11,21 @@ namespace FormValidateDemo.Controllers
 	{
 		public ActionResult Index()
 		{
-			return View();
+			var formViewModel = new FormViewModel();
+			return View(formViewModel);
+		}
+
+		public ActionResult RemoteValidateName(string name)
+		{
+			var result = name == "Neil";
+			return Json(result, JsonRequestBehavior.AllowGet);
+		}
+
+		[HttpPost]
+		public ActionResult Register(FormViewModel form)
+		{
+			var modelStateIsValid = ModelState.IsValid;
+			return Json(modelStateIsValid, JsonRequestBehavior.AllowGet);
 		}
 
 		public ActionResult About()
