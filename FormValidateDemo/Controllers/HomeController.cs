@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 using FormValidateDemo.Models.ViewModels;
@@ -11,6 +13,8 @@ namespace FormValidateDemo.Controllers
 	{
 		public ActionResult Index()
 		{
+			//Thread.CurrentThread.CurrentCulture = new CultureInfo("zh-TW");
+			Thread.CurrentThread.CurrentUICulture = CultureInfo.CreateSpecificCulture("en");
 			var formViewModel = new FormViewModel();
 			return View(formViewModel);
 		}

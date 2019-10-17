@@ -1,28 +1,29 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using FormValidateDemo.Resources;
 
 namespace FormValidateDemo.Models.ViewModels
 {
 	public class FormViewModel
 	{
-		[DisplayName("名字")]
-		[Required(ErrorMessage = "必填")]
-		[MaxLength(8, ErrorMessage = "不能超過{1}個字")]
+		[Display(ResourceType = typeof(Resource), Name = "DisplayUserName")]
+		[Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName= "Required")]
+		[MaxLength(8, ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "UserNameMaxLimit")]
 		public string UserName { get; set; }
 
-		[DisplayName("密碼")]
-		[Required(ErrorMessage = "必填")]
-		[RegularExpression("^(?=.*[a-zA-Z])(?=.*[0-9]).{8,15}$", ErrorMessage = "你的密碼不符合規則")]
+		[Display(ResourceType = typeof(Resource), Name = "DisplayPassword")]
+		[Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "Required")]
+		[RegularExpression("^(?=.*[a-zA-Z])(?=.*[0-9]).{8,15}$", ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "PassWordNotMatchRule")]
 		public string PassWord { get; set; }
 
-		[DisplayName("密碼確認")]
-		[Required(ErrorMessage = "必填")]
-		[Compare(nameof(PassWord), ErrorMessage = "兩次密碼不一樣")]
+		[Display(ResourceType = typeof(Resource), Name = "DisplayPasswordConfirm")]
+		[Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "Required")]
+		[Compare(nameof(PassWord), ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "PassWordDifferent")]
 		public string ConfirmPassWord { get; set; }
 
-		[DisplayName("信箱")]
-		[Required(ErrorMessage = "必填")]
-		[EmailAddress(ErrorMessage = "信箱格式不合")]
+		[Display(ResourceType = typeof(Resource), Name = "DisplayMail")]
+		[Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "Required")]
+		[EmailAddress(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "MailNotMatchRule")]
 		public string Email { get; set; }
 	}
 }
