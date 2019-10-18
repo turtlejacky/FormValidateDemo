@@ -5,28 +5,25 @@ using System.Linq;
 using System.Threading;
 using System.Web;
 using System.Web.Mvc;
+using FormValidateDemo.Models;
 using FormValidateDemo.Models.ViewModels;
 
 namespace FormValidateDemo.Controllers
 {
 	public class HomeController : Controller
 	{
-		public ActionResult Index()
+		public ActionResult Index(string lang = "en")
 		{
-			//Thread.CurrentThread.CurrentCulture = new CultureInfo("zh-TW");
-			Thread.CurrentThread.CurrentUICulture = CultureInfo.CreateSpecificCulture("en");
-			var formViewModel = new FormViewModel();
+			Thread.CurrentThread.CurrentUICulture = new CultureInfo(lang);
+			var formViewModel = new IndexViewModel()
+			{
+				Form = new RegisterForm()
+			};
 			return View(formViewModel);
 		}
 
-		public ActionResult RemoteValidateName(string name)
-		{
-			var result = name == "Neil";
-			return Json(result, JsonRequestBehavior.AllowGet);
-		}
-
 		[HttpPost]
-		public ActionResult Register(FormViewModel form)
+		public ActionResult Register(RegisterForm registerForm)
 		{
 			var modelStateIsValid = ModelState.IsValid;
 			return Json(modelStateIsValid, JsonRequestBehavior.AllowGet);

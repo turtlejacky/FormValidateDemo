@@ -61,11 +61,65 @@ namespace FormValidateDemo.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Email.
+        /// </summary>
+        public static string DisplayMail {
+            get {
+                return ResourceManager.GetString("DisplayMail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password.
+        /// </summary>
+        public static string DisplayPassword {
+            get {
+                return ResourceManager.GetString("DisplayPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirm Password.
+        /// </summary>
+        public static string DisplayPasswordConfirm {
+            get {
+                return ResourceManager.GetString("DisplayPasswordConfirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Name.
         /// </summary>
         public static string DisplayUserName {
             get {
                 return ResourceManager.GetString("DisplayUserName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This is not Email.
+        /// </summary>
+        public static string MailNotMatchRule {
+            get {
+                return ResourceManager.GetString("MailNotMatchRule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Password are different.
+        /// </summary>
+        public static string PasswordDifferent {
+            get {
+                return ResourceManager.GetString("PasswordDifferent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password didn&apos;t match rule.
+        /// </summary>
+        public static string PassWordNotMatchRule {
+            get {
+                return ResourceManager.GetString("PassWordNotMatchRule", resourceCulture);
             }
         }
         

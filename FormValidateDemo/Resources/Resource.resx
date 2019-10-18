@@ -106,4 +106,22 @@
   <data name="UserNameMaxLimit" xml:space="preserve">
     <value>Can't exceed {1} words</value>
   </data>
+  <data name="DisplayPassword" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="PassWordNotMatchRule" xml:space="preserve">
+    <value>Password didn't match rule</value>
+  </data>
+  <data name="DisplayPasswordConfirm" xml:space="preserve">
+    <value>Confirm Password</value>
+  </data>
+  <data name="PasswordDifferent" xml:space="preserve">
+    <value>The Password are different</value>
+  </data>
+  <data name="DisplayMail" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="MailNotMatchRule" xml:space="preserve">
+    <value>This is not Email</value>
+  </data>
 </root>

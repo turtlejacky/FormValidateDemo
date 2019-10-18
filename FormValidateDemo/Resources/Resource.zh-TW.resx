@@ -126,4 +126,22 @@
   <data name="UserNameMaxLimit" xml:space="preserve">
     <value>不能超過{1}個字</value>
   </data>
+  <data name="DisplayPassword" xml:space="preserve">
+    <value>密碼</value>
+  </data>
+  <data name="PassWordNotMatchRule" xml:space="preserve">
+    <value>密碼不符合規則</value>
+  </data>
+  <data name="DisplayPasswordConfirm" xml:space="preserve">
+    <value>確認密碼</value>
+  </data>
+  <data name="PasswordDifferent" xml:space="preserve">
+    <value>兩次密碼不同</value>
+  </data>
+  <data name="DisplayMail" xml:space="preserve">
+    <value>信箱</value>
+  </data>
+  <data name="MailNotMatchRule" xml:space="preserve">
+    <value> </value>
+  </data>
 </root>

@@ -1,10 +1,9 @@
-﻿using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using FormValidateDemo.Resources;
 
-namespace FormValidateDemo.Models.ViewModels
+namespace FormValidateDemo.Models
 {
-	public class FormViewModel
+	public class RegisterForm
 	{
 		[Display(ResourceType = typeof(Resource), Name = "DisplayUserName")]
 		[Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName= "Required")]
@@ -18,7 +17,7 @@ namespace FormValidateDemo.Models.ViewModels
 
 		[Display(ResourceType = typeof(Resource), Name = "DisplayPasswordConfirm")]
 		[Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "Required")]
-		[Compare(nameof(PassWord), ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "PassWordDifferent")]
+		[Compare(nameof(PassWord), ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "PasswordDifferent")]
 		public string ConfirmPassWord { get; set; }
 
 		[Display(ResourceType = typeof(Resource), Name = "DisplayMail")]
