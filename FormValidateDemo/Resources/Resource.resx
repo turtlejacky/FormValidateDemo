@@ -124,4 +124,10 @@
   <data name="MailNotMatchRule" xml:space="preserve">
     <value>This is not Email</value>
   </data>
+  <data name="BlackWordErrorMessage" xml:space="preserve">
+    <value>Can't have this word</value>
+  </data>
+  <data name="NeilOnlyMail" xml:space="preserve">
+    <value>Neil only can use test@gmail</value>
+  </data>
 </root>

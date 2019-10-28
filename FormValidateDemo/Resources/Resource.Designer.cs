@@ -61,6 +61,15 @@ namespace FormValidateDemo.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Can&apos;t have this word.
+        /// </summary>
+        public static string BlackWordErrorMessage {
+            get {
+                return ResourceManager.GetString("BlackWordErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email.
         /// </summary>
         public static string DisplayMail {
@@ -102,6 +111,15 @@ namespace FormValidateDemo.Resources {
         public static string MailNotMatchRule {
             get {
                 return ResourceManager.GetString("MailNotMatchRule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Neil only can use test@gmail.
+        /// </summary>
+        public static string NeilOnlyMail {
+            get {
+                return ResourceManager.GetString("NeilOnlyMail", resourceCulture);
             }
         }
         

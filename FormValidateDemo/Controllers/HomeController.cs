@@ -6,7 +6,6 @@ using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 using FormValidateDemo.Models;
-using FormValidateDemo.Models.ViewModels;
 
 namespace FormValidateDemo.Controllers
 {
@@ -15,14 +14,12 @@ namespace FormValidateDemo.Controllers
 		public ActionResult Index(string lang = "en")
 		{
 			Thread.CurrentThread.CurrentUICulture = new CultureInfo(lang);
-			var formViewModel = new IndexViewModel()
-			{
-				Form = new RegisterForm()
-			};
-			return View(formViewModel);
+			var form = new RegisterForm();
+			return View(form);
 		}
 
 		[HttpPost]
+		[ValidateAntiForgeryToken]
 		public ActionResult Register(RegisterForm registerForm)
 		{
 			var modelStateIsValid = ModelState.IsValid;

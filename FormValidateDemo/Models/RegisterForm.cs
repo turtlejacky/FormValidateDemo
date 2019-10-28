@@ -1,4 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
+using FormValidateDemo.Controllers;
+using FormValidateDemo.Models.Attributes;
 using FormValidateDemo.Resources;
 
 namespace FormValidateDemo.Models
@@ -6,8 +9,9 @@ namespace FormValidateDemo.Models
 	public class RegisterForm
 	{
 		[Display(ResourceType = typeof(Resource), Name = "DisplayUserName")]
-		[Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName= "Required")]
+		[Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "Required")]
 		[MaxLength(8, ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "UserNameMaxLimit")]
+		[RemoteDoublePlus("RemoteValidateName", "RemoteValidate", ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "BlackWordErrorMessage")]
 		public string UserName { get; set; }
 
 		[Display(ResourceType = typeof(Resource), Name = "DisplayPassword")]
@@ -17,12 +21,13 @@ namespace FormValidateDemo.Models
 
 		[Display(ResourceType = typeof(Resource), Name = "DisplayPasswordConfirm")]
 		[Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "Required")]
-		[Compare(nameof(PassWord), ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "PasswordDifferent")]
+		[System.ComponentModel.DataAnnotations.Compare(nameof(PassWord), ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "PasswordDifferent")]
 		public string ConfirmPassWord { get; set; }
 
 		[Display(ResourceType = typeof(Resource), Name = "DisplayMail")]
 		[Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "Required")]
 		[EmailAddress(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "MailNotMatchRule")]
+		[RemoteDoublePlus("RemoteValidationAdditional", "RemoteValidate", AdditionalFields = "UserName", ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "NeilOnlyMail")]
 		public string Email { get; set; }
 	}
 }
